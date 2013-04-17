@@ -9,7 +9,7 @@
 #import "RemarqueViewController.h"
 #import "RemarqueNotesViewController.h"
 
-@interface RemarqueViewController ()
+@interface RemarqueViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *urlText;
 
@@ -36,6 +36,12 @@
         RemarqueNotesViewController *rnotesvc = (RemarqueNotesViewController *)segue.destinationViewController;
         rnotesvc.url = self.urlText.text;
     }
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField
+{
+    [self performSegueWithIdentifier:@"showNotes" sender:self];
+    return YES;
 }
 
 @end

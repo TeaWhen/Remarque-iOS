@@ -12,6 +12,7 @@
 @interface RemarqueViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *urlText;
+@property (weak, nonatomic) IBOutlet UITextField *usernameText;
 
 @end
 
@@ -35,6 +36,7 @@
     if ([segue.identifier isEqualToString:@"showNotes"]) {
         RemarqueNotesViewController *rnotesvc = (RemarqueNotesViewController *)segue.destinationViewController;
         rnotesvc.url = self.urlText.text;
+        rnotesvc.username = self.usernameText.text;
     }
 }
 

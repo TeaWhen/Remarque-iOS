@@ -11,5 +11,6 @@
 @interface RemarqueNotesViewController : UITableViewController
 
 @property (strong, nonatomic) NSString *url;
+@property (strong, nonatomic) NSString *username;
 
 @end

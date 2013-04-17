@@ -31,7 +31,7 @@
     self.title = @"Notes";
     
     self.remarque_notes = [[RemarqueNotesModel alloc] init];
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/", self.url];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", self.url, self.username];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     

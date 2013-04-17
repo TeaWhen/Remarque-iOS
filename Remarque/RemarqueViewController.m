@@ -7,8 +7,11 @@
 //
 
 #import "RemarqueViewController.h"
+#import "RemarqueNotesViewController.h"
 
 @interface RemarqueViewController ()
+
+@property (weak, nonatomic) IBOutlet UITextField *urlText;
 
 @end
 
@@ -17,6 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Login";
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -24,6 +28,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    if ([segue.identifier isEqualToString:@"showNotes"]) {
+        RemarqueNotesViewController *rnotesvc = (RemarqueNotesViewController *)segue.destinationViewController;
+        rnotesvc.url = self.urlText.text;
+    }
 }
 
 @end

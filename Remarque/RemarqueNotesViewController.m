@@ -28,9 +28,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"Notes";
     
     self.remarque_notes = [[RemarqueNotesModel alloc] init];
-    NSURL *url = [NSURL URLWithString:@"http://127.0.0.1:5000/api/note/"];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/", self.url];
+    NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {

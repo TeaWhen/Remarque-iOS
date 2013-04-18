@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RemarqueSettingsViewController : UIViewController 
+@interface RemarqueSettingsViewController : UITableViewController
 
 @end

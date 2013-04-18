@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4F810E5417203053004216A8 /* RemarqueSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F810E5317203053004216A8 /* RemarqueSettingsViewController.m */; };
+		4F810E5717204311004216A8 /* RemarqueSettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F810E5617204311004216A8 /* RemarqueSettingsViewController.m */; };
 		4F9A6A49171DA4F1003DAEFC /* RemarqueNotesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F9A6A48171DA4F1003DAEFC /* RemarqueNotesViewController.m */; };
 		4FA9D476171C636B00ECE3B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA9D475171C636B00ECE3B8 /* UIKit.framework */; };
 		4FA9D478171C636B00ECE3B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FA9D477171C636B00ECE3B8 /* Foundation.framework */; };
@@ -27,8 +27,8 @@
 
 /* Begin PBXFileReference section */
 		2D54E49C0CCE41CF98B61C62 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
-		4F810E5217203053004216A8 /* RemarqueSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarqueSettingsViewController.h; sourceTree = "<group>"; };
-		4F810E5317203053004216A8 /* RemarqueSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarqueSettingsViewController.m; sourceTree = "<group>"; };
+		4F810E5517204311004216A8 /* RemarqueSettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarqueSettingsViewController.h; sourceTree = "<group>"; };
+		4F810E5617204311004216A8 /* RemarqueSettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarqueSettingsViewController.m; sourceTree = "<group>"; };
 		4F9A6A47171DA4F1003DAEFC /* RemarqueNotesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RemarqueNotesViewController.h; sourceTree = "<group>"; };
 		4F9A6A48171DA4F1003DAEFC /* RemarqueNotesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RemarqueNotesViewController.m; sourceTree = "<group>"; };
 		4FA9D472171C636B00ECE3B8 /* Remarque.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Remarque.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,8 +100,8 @@
 		4F810E4E17202C48004216A8 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				4F810E5217203053004216A8 /* RemarqueSettingsViewController.h */,
-				4F810E5317203053004216A8 /* RemarqueSettingsViewController.m */,
+				4F810E5517204311004216A8 /* RemarqueSettingsViewController.h */,
+				4F810E5617204311004216A8 /* RemarqueSettingsViewController.m */,
 				4F9A6A47171DA4F1003DAEFC /* RemarqueNotesViewController.h */,
 				4F9A6A48171DA4F1003DAEFC /* RemarqueNotesViewController.m */,
 			);
@@ -269,7 +269,7 @@
 				4FA9D495171C636B00ECE3B8 /* RemarqueViewController.m in Sources */,
 				4F9A6A49171DA4F1003DAEFC /* RemarqueNotesViewController.m in Sources */,
 				4FFFEF2C171DAECF002E4DA3 /* RemarqueNotesModel.m in Sources */,
-				4F810E5417203053004216A8 /* RemarqueSettingsViewController.m in Sources */,
+				4F810E5717204311004216A8 /* RemarqueSettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

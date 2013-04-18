@@ -10,37 +10,37 @@
 
 @interface RemarqueSettingsViewController () <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UITextField *usernameText;
 @property (weak, nonatomic) IBOutlet UITextField *urlText;
+@property (weak, nonatomic) IBOutlet UITextField *usernameText;
 
 @end
 
 @implementation RemarqueSettingsViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.title = @"Settings";
     self.usernameText.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"];
-	// Do any additional setup after loading the view.
 }
 
-- (void)didReceiveMemoryWarning
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    if (indexPath.row == 2) {
+        [self saveSettings];
+    }
 }
 
-- (IBAction)saveSettings:(id)sender {
+- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if (indexPath.row == 2) {
+        return YES;
+    }
+    return NO;
+}
+
+- (void)saveSettings
+{
     if (self.urlText.hasText) {
         [[NSUserDefaults standardUserDefaults] setURL:[NSURL URLWithString:self.urlText.text] forKey:@"RemarqueServerURL"];
     }
@@ -56,7 +56,7 @@
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self saveSettings:nil];
+    [self saveSettings];
     return YES;
 }
 

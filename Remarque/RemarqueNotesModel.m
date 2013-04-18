@@ -25,12 +25,14 @@
 
 - (void)fetchNotes
 {
+    [self.notes removeAllObjects];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
     NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", [[NSUserDefaults standardUserDefaults] URLForKey:@"RemarqueServerURL"], [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        self.notes = [JSON valueForKeyPath:@"objects"];
+        self.notes = [NSMutableArray arrayWithArray:(NSArray *)[JSON valueForKeyPath:@"objects"]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
     } failure:nil];
     

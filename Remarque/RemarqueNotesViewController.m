@@ -8,7 +8,7 @@
 
 #import "RemarqueNotesViewController.h"
 #import "RemarqueNotesModel.h"
-#import "AFNetworking.h"
+
 
 @interface RemarqueNotesViewController ()
 @property (strong, nonatomic) RemarqueNotesModel *remarque_notes;
@@ -28,25 +28,25 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Notes";
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(reloadTableData) name:@"RemarqueNotesUpdated" object:nil];
+    
+    self.title = @"Remarque";
     
     self.remarque_notes = [[RemarqueNotesModel alloc] init];
     NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", self.url, self.username];
-    NSURL *url = [NSURL URLWithString:urlString];
-    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    
-    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
-        [self.remarque_notes feedNotes:[JSON valueForKeyPath:@"objects"]];
-        [self.tableView reloadData];
-    } failure:nil];
-    
-    [operation start];
+    [self.remarque_notes fetchNotes:urlString];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
  
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+}
+
+- (void)reloadTableData
+{
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning

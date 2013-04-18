@@ -7,6 +7,7 @@
 //
 
 #import "RemarqueNotesModel.h"
+#import "AFNetworking.h"
 
 @interface RemarqueNotesModel()
 @property (strong, nonatomic) NSMutableArray *notes;
@@ -14,9 +15,17 @@
 
 @implementation RemarqueNotesModel
 
-- (void)feedNotes:(NSArray *)notes
+- (void)fetchNotes:(NSString *)url
 {
-    self.notes = [NSMutableArray arrayWithArray:notes];
+    NSURL *server_url = [NSURL URLWithString:url];
+    NSURLRequest *request = [NSURLRequest requestWithURL:server_url];
+    
+    AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
+        self.notes = [JSON valueForKeyPath:@"objects"];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
+    } failure:nil];
+    
+    [operation start];    
 }
 
 - (NSInteger)countNotes

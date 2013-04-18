@@ -10,7 +10,7 @@
 
 @interface RemarqueNotesModel : NSObject
 
-- (void)fetchNotes:(NSString *)url;
+- (void)fetchNotes;
 - (NSInteger)countNotes;
 - (NSString *)titleOfNoteAtIndex:(NSUInteger)index;
 - (NSString *)detailOfNoteAtIndex:(NSUInteger)index;

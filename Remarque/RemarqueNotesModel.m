@@ -15,17 +15,26 @@
 
 @implementation RemarqueNotesModel
 
-- (void)fetchNotes:(NSString *)url
+- (id)init {
+    self = [super init];
+    if (self) {
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(fetchNotes) name:@"RemarqueSettingsChanged" object:nil];
+    }
+    return self;
+}
+
+- (void)fetchNotes
 {
-    NSURL *server_url = [NSURL URLWithString:url];
-    NSURLRequest *request = [NSURLRequest requestWithURL:server_url];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", [[NSUserDefaults standardUserDefaults] URLForKey:@"RemarqueServerURL"], [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"]];
+    NSURL *url = [NSURL URLWithString:urlString];
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         self.notes = [JSON valueForKeyPath:@"objects"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
     } failure:nil];
     
-    [operation start];    
+    [operation start];
 }
 
 - (NSInteger)countNotes

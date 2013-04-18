@@ -4,61 +4,6 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="2083"/>
     </dependencies>
     <scenes>
-        <!--Remarque View Controller-->
-        <scene sceneID="gqu-EF-McM">
-            <objects>
-                <viewController id="Nj4-aZ-QCP" customClass="RemarqueViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="wCC-tn-2Y4">
-                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vv6-Bd-eHk">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zi0-Yj-Tbd">
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                <state key="normal" title="Load">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="dWi-KH-j1l" kind="push" identifier="showNotes" id="6R9-4d-h9Z"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2fy-Zq-Yla">
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <outlet property="delegate" destination="Nj4-aZ-QCP" id="SFj-9C-CDl"/>
-                                </connections>
-                            </textField>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="Zi0-Yj-Tbd" firstAttribute="centerX" secondItem="2fy-Zq-Yla" secondAttribute="centerX" type="default" id="1ls-Yw-uk3"/>
-                            <constraint firstItem="2fy-Zq-Yla" firstAttribute="leading" secondItem="wCC-tn-2Y4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="ApU-L4-tm8"/>
-                            <constraint firstAttribute="trailing" secondItem="2fy-Zq-Yla" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="D2C-6U-NeJ"/>
-                            <constraint firstItem="vv6-Bd-eHk" firstAttribute="top" secondItem="wCC-tn-2Y4" secondAttribute="top" constant="20" symbolic="YES" type="default" id="MZG-y0-9mQ"/>
-                            <constraint firstItem="vv6-Bd-eHk" firstAttribute="leading" secondItem="wCC-tn-2Y4" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="PTT-Uo-NRF"/>
-                            <constraint firstItem="Zi0-Yj-Tbd" firstAttribute="top" secondItem="2fy-Zq-Yla" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="byi-5M-Ap2"/>
-                            <constraint firstAttribute="trailing" secondItem="vv6-Bd-eHk" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="cgL-K6-Kyj"/>
-                            <constraint firstItem="2fy-Zq-Yla" firstAttribute="top" secondItem="vv6-Bd-eHk" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="dba-iF-9Ax"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="EXX-Km-XT7"/>
-                    <connections>
-                        <outlet property="urlText" destination="vv6-Bd-eHk" id="gWQ-Rz-G2z"/>
-                        <outlet property="usernameText" destination="2fy-Zq-Yla" id="jqW-FQ-td6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Vpb-me-C6U" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-222" y="-181"/>
-        </scene>
         <!--Navigation Controller-->
         <scene sceneID="Y7C-gw-ypA">
             <objects>
@@ -67,7 +12,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="Nj4-aZ-QCP" kind="relationship" relationship="rootViewController" id="lEX-3v-QOP"/>
+                        <segue destination="dWi-KH-j1l" kind="relationship" relationship="rootViewController" id="rCK-CA-kIv"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XNG-tG-tQI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -110,11 +55,94 @@
                             <outlet property="delegate" destination="dWi-KH-j1l" id="mSe-kY-pEu"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="dY0-6V-feL"/>
+                    <navigationItem key="navigationItem" id="dY0-6V-feL">
+                        <barButtonItem key="leftBarButtonItem" title="Refresh" id="y3o-Ws-4NT">
+                            <connections>
+                                <action selector="refreshRemarque:" destination="dWi-KH-j1l" id="noc-pC-8gZ"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Settings" id="fd9-gY-DTh">
+                            <connections>
+                                <segue destination="d6o-dc-VGm" kind="push" id="5L5-ou-RuK"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pUI-09-P0a" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="160" y="-181"/>
+            <point key="canvasLocation" x="-206" y="-181"/>
+        </scene>
+        <!--Remarque Settings View Controller-->
+        <scene sceneID="W2t-sO-jHa">
+            <objects>
+                <viewController storyboardIdentifier="settingsUI" useStoryboardIdentifierAsRestorationIdentifier="YES" id="d6o-dc-VGm" customClass="RemarqueSettingsViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KLU-Hs-UK7">
+                        <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Username:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xry-Ee-olQ">
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="84" id="xQ5-qy-FHV"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sER-bR-tc3">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no"/>
+                                <connections>
+                                    <outlet property="delegate" destination="d6o-dc-VGm" id="rbr-BF-gdt"/>
+                                </connections>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c3q-sD-Z90">
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="saveSettings:" destination="d6o-dc-VGm" eventType="touchUpInside" id="HHm-d9-pnS"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Server:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nJb-3l-gmT">
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Default to our server." minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zIn-KB-axl">
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="zIn-KB-axl" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="1oV-1b-QUT"/>
+                            <constraint firstItem="nJb-3l-gmT" firstAttribute="top" secondItem="KLU-Hs-UK7" secondAttribute="top" constant="61" id="6fJ-pb-Wnh"/>
+                            <constraint firstItem="c3q-sD-Z90" firstAttribute="leading" secondItem="sER-bR-tc3" secondAttribute="leading" type="default" id="Bat-tO-VZB"/>
+                            <constraint firstItem="sER-bR-tc3" firstAttribute="leading" secondItem="xry-Ee-olQ" secondAttribute="trailing" constant="8" symbolic="YES" type="default" id="GPq-NC-Ee0"/>
+                            <constraint firstItem="nJb-3l-gmT" firstAttribute="leading" secondItem="KLU-Hs-UK7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="Izr-Mo-dV8"/>
+                            <constraint firstItem="c3q-sD-Z90" firstAttribute="top" secondItem="sER-bR-tc3" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="QLm-m7-A53"/>
+                            <constraint firstAttribute="trailing" secondItem="sER-bR-tc3" secondAttribute="trailing" constant="20" symbolic="YES" type="default" id="WIt-FQ-JrU"/>
+                            <constraint firstItem="xry-Ee-olQ" firstAttribute="leading" secondItem="KLU-Hs-UK7" secondAttribute="leading" constant="20" symbolic="YES" type="default" id="X2O-7l-hpW"/>
+                            <constraint firstItem="zIn-KB-axl" firstAttribute="leading" secondItem="sER-bR-tc3" secondAttribute="leading" type="default" id="aix-IX-df2"/>
+                            <constraint firstItem="sER-bR-tc3" firstAttribute="top" secondItem="xry-Ee-olQ" secondAttribute="top" type="default" id="bYf-yc-AKz"/>
+                            <constraint firstItem="zIn-KB-axl" firstAttribute="top" secondItem="KLU-Hs-UK7" secondAttribute="top" constant="57" id="ech-Ov-Jzr"/>
+                            <constraint firstItem="xry-Ee-olQ" firstAttribute="top" secondItem="nJb-3l-gmT" secondAttribute="bottom" constant="8" symbolic="YES" type="default" id="h89-sD-XqI"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="umc-ZR-JyQ"/>
+                    <connections>
+                        <outlet property="urlText" destination="zIn-KB-axl" id="19L-YZ-x1D"/>
+                        <outlet property="usernameText" destination="sER-bR-tc3" id="4fE-oN-g0y"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pqr-gq-XuV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="180" y="-181"/>
         </scene>
     </scenes>
     <classes>
@@ -123,10 +151,14 @@
         </class>
         <class className="RemarqueNotesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueNotesViewController.h"/>
-        </class>
-        <class className="RemarqueViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueViewController.h"/>
             <relationships>
+                <relationship kind="action" name="refreshRemarque:"/>
+            </relationships>
+        </class>
+        <class className="RemarqueSettingsViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueSettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="saveSettings:"/>
                 <relationship kind="outlet" name="urlText" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="usernameText" candidateClass="UITextField"/>
             </relationships>

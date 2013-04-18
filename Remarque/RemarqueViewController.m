@@ -35,8 +35,8 @@
 {
     if ([segue.identifier isEqualToString:@"showNotes"]) {
         RemarqueNotesViewController *rnotesvc = (RemarqueNotesViewController *)segue.destinationViewController;
-        rnotesvc.url = self.urlText.text;
-        rnotesvc.username = self.usernameText.text;
+//        rnotesvc.url = self.urlText.text;
+//        rnotesvc.username = self.usernameText.text;
     }
 }
 

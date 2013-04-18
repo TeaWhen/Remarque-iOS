@@ -116,6 +116,9 @@
                                                     </constraints>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
+                                                    <connections>
+                                                        <outlet property="delegate" destination="jbe-ji-MZD" id="V1B-WB-cEQ"/>
+                                                    </connections>
                                                 </textField>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -188,9 +191,6 @@
         </class>
         <class className="RemarqueNotesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueNotesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshRemarque:"/>
-            </relationships>
         </class>
         <class className="RemarqueSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueSettingsViewController.h"/>

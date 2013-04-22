@@ -20,43 +20,23 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.title = @"Settings";
-    self.usernameText.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"];
 }
 
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 2) {
-        [self saveSettings];
-    }
-}
-
-- (BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row == 2) {
-        return YES;
-    }
-    return NO;
+- (IBAction)editingDidEnd:(UITextField *)sender {
+    [self saveSettings];
 }
 
 - (void)saveSettings
 {
-    if (self.urlText.hasText) {
-        [[NSUserDefaults standardUserDefaults] setURL:[NSURL URLWithString:self.urlText.text] forKey:@"RemarqueServerURL"];
-    }
-    
-    if (self.usernameText.hasText) {
-        [[NSUserDefaults standardUserDefaults] setObject:self.usernameText.text forKey:@"RemarqueServerUsername"];
-    }
+    [[NSUserDefaults standardUserDefaults] setURL:[NSURL URLWithString:self.urlText.text] forKey:@"RemarqueServerURL"];
+    [[NSUserDefaults standardUserDefaults] setObject:self.usernameText.text forKey:@"RemarqueServerUsername"];
     
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueSettingsChanged" object:self];
-    
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
-    [self saveSettings];
+    [textField resignFirstResponder];
     return YES;
 }
 

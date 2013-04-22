@@ -20,6 +20,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.urlText.text = [[NSUserDefaults standardUserDefaults] URLForKey:@"RemarqueServerURL"].absoluteString;
+    self.usernameText.text = [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"];
 }
 
 - (IBAction)editingDidEnd:(UITextField *)sender {

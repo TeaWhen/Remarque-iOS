@@ -83,7 +83,7 @@
                         <sections>
                             <tableViewSection id="Z5M-ka-I6p">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0xR-Vh-99h">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="0xR-Vh-99h">
                                         <rect key="frame" x="0.0" y="10" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -100,12 +100,12 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="default Remarque server" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jKN-Xx-hBK">
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="209" id="162-GZ-xX9"/>
+                                                        <constraint firstAttribute="width" constant="211" id="j1M-4D-A9Z"/>
                                                         <constraint firstAttribute="height" constant="30" id="w8s-b4-FW3"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="URL"/>
                                                     <connections>
                                                         <action selector="editingDidEnd:" destination="srW-8B-f2B" eventType="editingDidEnd" id="FDz-8e-qFv"/>
                                                         <outlet property="delegate" destination="srW-8B-f2B" id="GFu-ZA-ffE"/>
@@ -122,7 +122,7 @@
                                             <constraint firstAttribute="trailing" secondItem="fYv-65-tqn" secondAttribute="trailing" constant="20" type="default" id="q56-up-qUX"/>
                                         </constraints>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RWA-GG-jd9">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="RWA-GG-jd9">
                                         <rect key="frame" x="0.0" y="55" width="320" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
@@ -139,12 +139,12 @@
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="enter username" textAlignment="right" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u3l-66-0ll">
                                                     <constraints>
+                                                        <constraint firstAttribute="width" constant="176" id="2mF-h2-lCz"/>
                                                         <constraint firstAttribute="height" constant="30" id="Be4-vy-dL1"/>
-                                                        <constraint firstAttribute="width" constant="191" id="E2v-J9-Mz0"/>
                                                     </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <textInputTraits key="textInputTraits"/>
+                                                    <textInputTraits key="textInputTraits" autocorrectionType="no"/>
                                                     <connections>
                                                         <action selector="editingDidEnd:" destination="srW-8B-f2B" eventType="editingDidEnd" id="gkR-er-SH7"/>
                                                         <outlet property="delegate" destination="srW-8B-f2B" id="mdt-LS-k4U"/>
@@ -186,9 +186,6 @@
         </class>
         <class className="RemarqueNotesViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueNotesViewController.h"/>
-            <relationships>
-                <relationship kind="action" name="refreshRemarque:"/>
-            </relationships>
         </class>
         <class className="RemarqueSettingsViewController" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/RemarqueSettingsViewController.h"/>

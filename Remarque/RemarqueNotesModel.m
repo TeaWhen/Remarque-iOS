@@ -25,16 +25,23 @@
 
 - (void)fetchNotes
 {
+    NSURL *serverURL = [[NSUserDefaults standardUserDefaults] URLForKey:@"RemarqueServerURL"];
+    if ([[serverURL absoluteString] isEqual: @""]) {
+        serverURL = [NSURL URLWithString:@"http://vps.teawhen.com:8123"];
+    }
+    
     [self.notes removeAllObjects];
     [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
-    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", [[NSUserDefaults standardUserDefaults] URLForKey:@"RemarqueServerURL"], [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"]];
+    NSString *urlString = [NSString stringWithFormat:@"%@/api/note/?user__username=%@", serverURL, [[NSUserDefaults standardUserDefaults] stringForKey:@"RemarqueServerUsername"]];
     NSURL *url = [NSURL URLWithString:urlString];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFJSONRequestOperation *operation = [AFJSONRequestOperation JSONRequestOperationWithRequest:request success:^(NSURLRequest *request, NSHTTPURLResponse *response, id JSON) {
         self.notes = [NSMutableArray arrayWithArray:(NSArray *)[JSON valueForKeyPath:@"objects"]];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"RemarqueNotesUpdated" object:self];
-    } failure:nil];
+    } failure:^(NSURLRequest *request, NSHTTPURLResponse *response, NSError *error, id JSON) {
+        NSLog(@"Fetch notes failed.");
+    }];
     
     [operation start];
 }
